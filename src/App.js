@@ -40,6 +40,7 @@ function App() {
         console.log(typeof(pdata.items))
       }
       <button onClick={handleAuth}>Sign in with google</button>
+      <button onClick={handleAuth}>Log in</button>
       {/* <span>{data}</span> */}
     </div>
   );
