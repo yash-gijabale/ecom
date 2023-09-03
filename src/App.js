@@ -39,7 +39,7 @@ function App() {
         // })
         console.log(typeof(pdata.items))
       }
-      <button onClick={handleAuth}>Sign in</button>
+      <button onClick={handleAuth}>Sign in with google</button>
       {/* <span>{data}</span> */}
     </div>
   );
