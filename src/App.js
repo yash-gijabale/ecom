@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './components/Counter';
+import Atm from './pages/atm/Atm';
+import {auth, provider} from './components/firebase'
+import { signInWithPopup } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+import {createNewCollection, getCollectionData} from './components/firebase'
+import {SHOP_DATA} from './shop_data'
+import { wait } from '@testing-library/user-event/dist/utils';
+
+
 
 function App() {
+
+
+  const [user, setuser] = useState(null)
+  const [pdata, setdata] = useState([])
+  async function handleAuth (){
+    let newUser = await signInWithPopup(auth, provider)
+    setuser(newUser)
+  }
+
+  useEffect(()=>{
+    const getData = async() =>{
+      const data =  await getCollectionData()
+      setdata(data)
+    }
+    setdata('loading...')
+    getData()
+  },[])
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Atm/>
+      {
+        // pdata.items.forEach(element => {
+          
+        // })
+        console.log(typeof(pdata.items))
+      }
+      <button onClick={handleAuth}>Sign in</button>
+      {/* <span>{data}</span> */}
     </div>
   );
 }
