@@ -5,8 +5,7 @@ import {auth, provider} from './components/firebase'
 import { signInWithPopup } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import {createNewCollection, getCollectionData} from './components/firebase'
-import {SHOP_DATA} from './shop_data'
-import { wait } from '@testing-library/user-event/dist/utils';
+import { Route, Routes, Link } from 'react-router-dom';
 
 
 
@@ -14,33 +13,44 @@ function App() {
 
 
   const [user, setuser] = useState(null)
-  const [pdata, setdata] = useState([])
+  const [category, setCategory] = useState([])
+
   async function handleAuth (){
-    let newUser = await signInWithPopup(auth, provider)
+    let newUser = await signInWithPopup(auth, provider).then((result) => {
+    })
+    .catch((error) => {
+      console.log("Caught error Popup closed");
+    });
+
     setuser(newUser)
   }
 
   useEffect(()=>{
     const getData = async() =>{
       const data =  await getCollectionData()
-      setdata(data)
+      console.log(data)
+      setCategory(data)
     }
-    setdata('loading...')
     getData()
   },[])
  
 
   return (
     <div className="App">
-      <Atm/>
-      {
-        // pdata.items.forEach(element => {
-          
-        // })
-        console.log(typeof(pdata.items))
-      }
+      <Link to="/atm">Atm</Link>
+      <Routes>
+        <Route path="/" element={<Atm />} />
+        <Route path="/atm" element={<Atm />} />
+      </Routes>
+
       <button onClick={handleAuth}>Sign in with google</button>
-      {/* <span>{data}</span> */}
+      {
+        category.map((data)=>
+        console.log(data.data())
+        )
+        // console.log(typeof(category))
+
+      }
     </div>
   );
 }
