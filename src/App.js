@@ -1,4 +1,5 @@
 import './App.css';
+import CheckOut from './components/check-out/check-out';
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/Home'
 import Shop from './pages/shop/Shop'
@@ -15,7 +16,8 @@ function App() {
 
         <Routes>
           <Route path='/' element = {<Home/>} />
-          <Route path='/shop' element = {<Shop/>} />
+          <Route path='/shop/*' element = {<Shop/>} />
+          <Route path='/checkout' element = {<CheckOut/>} />
         </Routes>
 
     </div>

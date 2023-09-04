@@ -1,0 +1,17 @@
+.preview-container{
+    width: 85vw;
+    margin: auto;
+}
+.preview-box{
+    display: grid;
+    width: 100%;
+    margin: auto;
+    grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    gap: 1rem;
+    place-items: center;
+}
+.cat-title{
+    width: 80vw;
+    margin: auto;
+    text-align: start;
+}

@@ -1,13 +1,13 @@
 .navbar-container{
     width: 100vw;
     height: 60px;
-    background-color: rgb(218, 246, 255);
+    background-color: rgb(47, 48, 48);
 
 
 }
 .logo{
     font-size: 30px;
-    color: rgb(93, 195, 236);
+    color: rgb(230, 240, 244);
     font-weight: bold;
 }
 .navbar-content{
@@ -33,14 +33,18 @@
     justify-content: space-between;
     list-style: none;
 }
+.navlinks-container ul li{
+    color: rgb(230, 240, 244);
+
+}
 .navlinks-container ul li a{
     font-size: 20px;
-    color: rgb(31, 173, 230);
+    color: rgb(230, 240, 244);
     text-decoration: none;
     transition: 0.2s all ease-in;
 }
 .navlinks-container ul li a:hover{
-    color: rgb(10, 86, 115);
+    color: rgb(180, 180, 180);
     cursor: pointer;
 
 }
@@ -48,4 +52,10 @@
 .active{
     color: rgb(10, 72, 96);
 
+}
+.cart-bag{
+    cursor: pointer;
+}
+.logo-container a{
+    text-decoration: none;
 }
