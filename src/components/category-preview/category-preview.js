@@ -22,7 +22,8 @@ const CategoryPreview = () => {
     return (
         <div>
             {
-                catProduct ? <CategoryProducts productsData={catProduct} /> : <span>NO PRoducts</span>
+                catProduct ? <CategoryProducts productsData={catProduct} /> : <span>products</span>
+
             }
         </div>
     )
